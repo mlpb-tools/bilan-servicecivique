@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilan Final - Service Civique Mission Locale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- En-tête -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-indigo-800 mb-2">🎯 Mon Bilan Service Civique</h1>
+            <p class="text-lg text-gray-600">Mission Locale - Mobilité Internationale</p>
+            <div class="mt-4 p-4 bg-white rounded-lg shadow-sm">
+                <input type="text" id="volunteerName" placeholder="Ton prénom et nom" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                <div class="mt-2 text-sm text-gray-500">
+                    <p>📍 Mission : Promotion de la mobilité internationale auprès des jeunes</p>
+                    <p>🌍 Programmes : Corps Européen de Solidarité, ERASMUS+, Service Civique International</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation par onglets - Référentiel RECTEC -->
+        <div class="mb-8">
+            <div class="flex flex-wrap justify-center space-x-1 bg-white p-2 rounded-lg shadow-sm">
+                <button onclick="showSection('mobilite')" id="tab-mobilite" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors bg-indigo-600 text-white text-sm">
+                    🌍 Ma Mission
+                </button>
+                <button onclick="showSection('citoyennete')" id="tab-citoyennete" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                    🏛️ Citoyenneté
+                </button>
+                <button onclick="showSection('communication')" id="tab-communication" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                    💬 Communication
+                </button>
+                <button onclick="showSection('numerique')" id="tab-numerique" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                    💻 Numérique
+                </button>
+                <button onclick="showSection('autonomie')" id="tab-autonomie" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                    🎯 Autonomie
+                </button>
+                <button onclick="showSection('collaboration')" id="tab-collaboration" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                    🤝 Collaboration
+                </button>
+                <button onclick="showSection('synthese')" id="tab-synthese" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                    📋 Synthèse
+                </button>
+                <button onclick="showSection('avenir')" id="tab-avenir" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                    🚀 Mon Avenir
+                </button>
+            </div>
+        </div>
+
+        <!-- Section Mission Mobilité Internationale -->
+        <div id="section-mobilite" class="section">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6">🌍 Ma Mission Mobilité Internationale</h2>
+            <p class="text-gray-600 mb-6">Évaluation spécifique de ma mission de promotion de la mobilité internationale</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📢 Promotion des programmes</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je connais bien le Corps Européen de Solidarité</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="connaissance-ces">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je maîtrise les programmes ERASMUS+</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="maitrise-erasmus">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je sais expliquer le Service Civique International</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="explication-sci">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je connais les opportunités transfrontalières</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="opportunites-transfrontalieres">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🎪 Animation d'ateliers</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'anime bien les ateliers d'information</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="animation-info">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je co-anime les ateliers linguistiques</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="coanimation-linguistique">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'aide à préparer les départs</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="preparation-departs">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je sais adapter mes ateliers selon les publics</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="adaptation-ateliers">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🎬 Valorisation des témoignages</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je recueille bien les témoignages des jeunes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="recueil-temoignages-mobilite">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je crée des supports audio/vidéo</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="creation-supports-av">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'utilise différents médias pour communiquer</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="utilisation-medias">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je motive les jeunes à témoigner</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="motivation-temoignages">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🛠️ Création d'outils</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'ai contribué au "My travel guide"</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="contribution-travel-guide">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'ai aidé pour le carnet de voyage</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="aide-carnet-voyage">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je propose des idées d'amélioration</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="idees-amelioration">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je teste les outils avec les jeunes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="test-outils">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🎉 Participation aux événements</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Journée de l'engagement (26/27 Juin)</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="journee-engagement">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Joli mois de l'Europe</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="joli-mois-europe">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Participation UNML/Baserriberri</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="participation-unml">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Communication sur les réseaux sociaux</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="communication-reseaux">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🤝 Missions transverses</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Collaboration avec les autres services civiques</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="collaboration-sc">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Contribution aux projets de la structure</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="contribution-projets">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Évaluation de la satisfaction des jeunes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="evaluation-satisfaction">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Adaptation selon les demandes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="adaptation-demandes">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">📝 Mes réussites en mobilité internationale</h3>
+                <textarea id="reussites-mobilite" placeholder="Raconte tes plus belles réussites : un jeune convaincu de partir, un atelier qui s'est super bien passé, un outil que tu as créé..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-32 resize-none"></textarea>
+            </div>
+        </div>
+
+        <!-- Section 1: Citoyenneté et Engagement Civique (RECTEC) -->
+        <div id="section-citoyennete" class="section hidden">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6">🏛️ Mon Engagement Citoyen</h2>
+            <p class="text-gray-600 mb-6">Comment j'ai développé mon sens civique et ma participation</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🌍 Ma compréhension du monde</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je comprends mieux les problèmes de société</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="enjeux-societaux">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je connais mieux l'Europe et ses institutions</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="institutions">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'ai envie d'aider les autres et la société</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="interet-general">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je sais présenter les programmes de mobilité</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="presentation-mobilite">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🤲 Ma participation active</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je propose des idées pour aider les jeunes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="initiative-citoyenne">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'ai participé aux événements (Journée de l'engagement, Joli mois de l'Europe)</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="participation-evenements">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je respecte et valorise les différences culturelles</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="respect-diversite">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'ai aidé à créer des outils (My travel guide, carnet de voyage)</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="creation-outils">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">📝 Mes expériences concrètes</h3>
+                <textarea id="exemples-engagement" placeholder="Raconte des moments où tu as vraiment aidé d'autres jeunes à découvrir la mobilité internationale..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+            </div>
+        </div>
+
+        <!-- Section 2: Communication (RECTEC) -->
+        <div id="section-communication" class="section hidden">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6">💬 Ma Communication</h2>
+            <p class="text-gray-600 mb-6">Comment j'ai appris à mieux communiquer avec les autres</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🗣️ Quand je parle</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'arrive à parler devant un groupe de jeunes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="prise-parole">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je sais convaincre les jeunes de partir en mobilité</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="argumentation">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'adapte mon discours selon les personnes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="adaptation-public">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'anime bien les ateliers collectifs</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="animation-ateliers">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">✍️ Quand j'écris</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'écris des textes clairs pour le site web</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="redaction-claire">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je résume bien les informations importantes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="synthese">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je sais utiliser les réseaux sociaux pour informer</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="communication-digitale">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'aide à créer des supports de communication</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="creation-supports">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">👂 Quand j'écoute</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'écoute vraiment les questions des jeunes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="ecoute-active">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je comprends les peurs et les envies des autres</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="empathie">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je recueille bien les témoignages des jeunes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="recueil-temoignages">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🌐 Avec les autres cultures</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je suis curieux des autres pays et cultures</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="ouverture-culturelle">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Je sais gérer les désaccords calmement</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="gestion-conflits">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">J'aide aux ateliers linguistiques</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="ateliers-linguistiques">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">📝 Mes moments de communication réussis</h3>
+                <textarea id="exemples-communication" placeholder="Raconte des moments où tu as bien communiqué (ateliers, événements, réseaux sociaux...)..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+            </div>
+        </div>
+
+        <!-- Section 3: Compétences Numériques (RECTEC) -->
+        <div id="section-numerique" class="section hidden">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6">💻 Compétences Numériques</h2>
+            <p class="text-gray-600 mb-6">Évaluation selon le référentiel européen RECTEC - Domaine 3</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🖥️ Maîtrise des outils</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Suite bureautique (Word, Excel, PowerPoint)</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="bureautique">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Outils collaboratifs (Teams, Slack, Drive)</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="outils-collaboratifs">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Réseaux sociaux professionnels</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="reseaux-pro">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🔍 Recherche et traitement de l'information</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Recherche efficace sur internet</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="recherche-web">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Évaluation de la fiabilité des sources</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="evaluation-sources">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Organisation et archivage numérique</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="archivage-numerique">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">🛡️ Sécurité et éthique numérique</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Protection des données personnelles</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="protection-donnees">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Respect de la propriété intellectuelle</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="propriete-intellectuelle">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">📝 Exemples d'utilisation du numérique</h3>
+                <textarea id="exemples-numerique" placeholder="Décrivez comment vous avez utilisé les outils numériques dans vos missions..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+            </div>
+        </div>
+
+        <!-- Section 4: Autonomie et Initiative (RECTEC) -->
+        <div id="section-autonomie" class="section hidden">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6">🎯 Autonomie et Initiative</h2>
+            <p class="text-gray-600 mb-6">Évaluation selon le référentiel européen RECTEC - Domaine 4</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">⚡ Prise d'initiative</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Proposition d'idées nouvelles</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="idees-nouvelles">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Prise de responsabilités</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="responsabilites">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Proactivité dans les missions</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="proactivite">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 Gestion personnelle</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Organisation du travail</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="organisation-travail">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Gestion du temps et des priorités</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="gestion-temps">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Capacité d'adaptation</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="adaptation">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🧠 Résolution de problèmes</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Analyse des situations</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="analyse-situations">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Recherche de solutions créatives</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="solutions-creatives">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📈 Apprentissage continu</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Curiosité et ouverture</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="curiosite">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Capacité d'auto-évaluation</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="auto-evaluation">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">📝 Exemples d'autonomie et d'initiative</h3>
+                <textarea id="exemples-autonomie" placeholder="Décrivez des situations où vous avez fait preuve d'autonomie et d'initiative..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+            </div>
+        </div>
+
+        <!-- Section 5: Collaboration et Travail d'équipe (RECTEC) -->
+        <div id="section-collaboration" class="section hidden">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6">🤝 Collaboration et Travail d'équipe</h2>
+            <p class="text-gray-600 mb-6">Évaluation selon le référentiel européen RECTEC - Domaine 5</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">👥 Travail en équipe</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Participation active aux projets collectifs</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="participation-collective">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Partage des connaissances</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="partage-connaissances">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Soutien aux collègues</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="soutien-collegues">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🎭 Leadership et influence</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Animation de groupes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="animation-groupes">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Mobilisation des équipes</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="mobilisation-equipes">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Coordination d'activités</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="coordination-activites">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🌐 Réseau et partenariats</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Développement de partenariats</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="developpement-partenariats">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Maintien des relations professionnelles</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="relations-professionnelles">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 Gestion de projet collaboratif</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Planification collective</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="planification-collective">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Suivi des objectifs communs</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="range" min="1" max="5" value="3" class="skill-slider flex-1" data-skill="suivi-objectifs">
+                                <span class="skill-value w-12 text-center font-medium">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">📝 Exemples de collaboration</h3>
+                <textarea id="exemples-collaboration" placeholder="Décrivez des situations concrètes de collaboration et de travail d'équipe..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+            </div>
+        </div>
+
+        <!-- Section Synthèse -->
+        <div id="section-synthese" class="section hidden">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6">📋 Synthèse & Perspectives</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 Objectifs atteints</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600" id="objectifs-score">0%</div>
+                            <div class="text-sm text-gray-600">Objectifs atteints</div>
+                            <input type="range" min="0" max="100" value="75" class="w-full mt-2" id="objectifs-slider" onchange="updateObjectifs(this.value)">
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600" id="satisfaction-score">0/5</div>
+                            <div class="text-sm text-gray-600">Satisfaction générale</div>
+                            <input type="range" min="1" max="5" value="4" class="w-full mt-2" id="satisfaction-slider" onchange="updateSatisfaction(this.value)">
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-600" id="recommandation-score">0/5</div>
+                            <div class="text-sm text-gray-600">Recommandation</div>
+                            <input type="range" min="1" max="5" value="4" class="w-full mt-2" id="recommandation-slider" onchange="updateRecommandation(this.value)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">✨ Points forts développés</h3>
+                        <textarea id="points-forts" placeholder="Quels sont vos principaux points forts développés ?" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 Axes d'amélioration</h3>
+                        <textarea id="axes-amelioration" placeholder="Quels axes souhaitez-vous encore développer ?" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🚀 Projet professionnel</h3>
+                    <textarea id="projet-professionnel" placeholder="Comment cette expérience influence-t-elle votre projet professionnel ?" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+                </div>
+
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 rounded-xl text-white">
+                    <h3 class="text-lg font-semibold mb-4">📊 Résumé des compétences RECTEC</h3>
+                    <div id="competences-resume" class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <h4 class="font-medium mb-2">🌍 Mission Mobilité :</h4>
+                            <div id="mobilite-summary"></div>
+                            <h4 class="font-medium mb-2 mt-3">🏛️ Citoyenneté :</h4>
+                            <div id="citoyennete-summary"></div>
+                            <h4 class="font-medium mb-2 mt-3">💬 Communication :</h4>
+                            <div id="communication-summary"></div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">💻 Numérique :</h4>
+                            <div id="numerique-summary"></div>
+                            <h4 class="font-medium mb-2 mt-3">🎯 Autonomie :</h4>
+                            <div id="autonomie-summary"></div>
+                            <h4 class="font-medium mb-2 mt-3">🤝 Collaboration :</h4>
+                            <div id="collaboration-summary"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Mon Avenir -->
+        <div id="section-avenir" class="section hidden">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6">🚀 Mon Projet d'Avenir</h2>
+            <p class="text-gray-600 mb-6">Comment cette expérience m'aide pour la suite</p>
+            
+            <div class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 Mes envies pour l'avenir</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="envie-etudes" class="rounded">
+                                <span>Continuer mes études</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="envie-travail" class="rounded">
+                                <span>Trouver un travail</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="envie-mobilite" class="rounded">
+                                <span>Partir en mobilité internationale</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="envie-formation" class="rounded">
+                                <span>Faire une formation professionnelle</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="envie-engagement" class="rounded">
+                                <span>Continuer à m'engager pour les autres</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="envie-creation" class="rounded">
+                                <span>Créer mon entreprise/association</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">💼 Domaines qui m'intéressent</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="domaine-international" class="rounded">
+                                <span>Relations internationales</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="domaine-communication" class="rounded">
+                                <span>Communication et médias</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="domaine-social" class="rounded">
+                                <span>Travail social et accompagnement</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="domaine-education" class="rounded">
+                                <span>Éducation et formation</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="domaine-tourisme" class="rounded">
+                                <span>Tourisme et voyages</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" id="domaine-langues" class="rounded">
+                                <span>Langues et traduction</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">✨ Ce que j'ai découvert sur moi</h3>
+                    <textarea id="decouverte-personnelle" placeholder="Qu'est-ce que tu as appris sur toi pendant cette mission ? Quelles sont tes forces ?" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">🌟 Mes compétences utiles pour l'avenir</h3>
+                        <textarea id="competences-avenir" placeholder="Quelles compétences développées vont t'aider dans tes projets futurs ?" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-32 resize-none"></textarea>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 Mes prochaines étapes</h3>
+                        <textarea id="prochaines-etapes" placeholder="Quelles sont tes prochaines étapes concrètes ? (formations, candidatures, projets...)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-32 resize-none"></textarea>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-500 to-blue-500 p-6 rounded-xl text-white">
+                    <h3 class="text-lg font-semibold mb-4">🌍 Mon lien avec la mobilité internationale</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-medium mb-2">Est-ce que tu veux partir toi-même ?</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="envie-partir" value="oui" class="text-white">
+                                    <span>Oui, j'ai envie de partir !</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="envie-partir" value="peut-etre" class="text-white">
+                                    <span>Peut-être, je réfléchis</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="envie-partir" value="non" class="text-white">
+                                    <span>Non, pas pour moi</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">Veux-tu continuer à aider d'autres jeunes ?</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="continuer-aider" value="oui" class="text-white">
+                                    <span>Oui, j'adore ça !</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="continuer-aider" value="occasionnellement" class="text-white">
+                                    <span>De temps en temps</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="continuer-aider" value="non" class="text-white">
+                                    <span>Non, j'ai fait ma part</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">💌 Mon message aux futurs volontaires</h3>
+                    <textarea id="message-futurs-volontaires" placeholder="Que dirais-tu à un jeune qui hésite à faire un service civique en mobilité internationale ?" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent h-24 resize-none"></textarea>
+                </div>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-yellow-800 mb-2">🎉 Félicitations !</h3>
+                    <p class="text-yellow-700">Tu as terminé ton service civique et développé plein de compétences utiles pour ton avenir. Cette expérience va t'ouvrir de nouvelles portes !</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <button onclick="generatePDF()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2">
+                <span>📄</span>
+                <span>Télécharger mon bilan</span>
+            </button>
+            <button onclick="resetForm()" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2">
+                <span>🔄</span>
+                <span>Recommencer</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Gestion des onglets
+        function showSection(sectionName) {
+            // Masquer toutes les sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Afficher la section sélectionnée
+            document.getElementById('section-' + sectionName).classList.remove('hidden');
+            document.getElementById('section-' + sectionName).classList.add('fade-in');
+            
+            // Mettre à jour les onglets
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white');
+                btn.classList.add('text-indigo-600', 'hover:bg-indigo-50');
+            });
+            
+            document.getElementById('tab-' + sectionName).classList.add('bg-indigo-600', 'text-white');
+            document.getElementById('tab-' + sectionName).classList.remove('text-indigo-600', 'hover:bg-indigo-50');
+        }
+
+        // Gestion des sliders de compétences
+        document.querySelectorAll('.skill-slider').forEach(slider => {
+            slider.addEventListener('input', function() {
+                const value = this.value;
+                const valueSpan = this.parentNode.querySelector('.skill-value');
+                valueSpan.textContent = value + '/5';
+                
+                // Couleur progressive
+                const percentage = (value - 1) / 4 * 100;
+                this.style.background = `linear-gradient(to right, #4f46e5 0%, #4f46e5 ${percentage}%, #e5e7eb ${percentage}%, #e5e7eb 100%)`;
+                
+                updateSkillsSummary();
+            });
+            
+            // Initialiser la couleur
+            slider.dispatchEvent(new Event('input'));
+        });
+
+        // Mise à jour des scores
+        function updateObjectifs(value) {
+            document.getElementById('objectifs-score').textContent = value + '%';
+        }
+
+        function updateSatisfaction(value) {
+            document.getElementById('satisfaction-score').textContent = value + '/5';
+        }
+
+        function updateRecommandation(value) {
+            document.getElementById('recommandation-score').textContent = value + '/5';
+        }
+
+        // Mise à jour du résumé des compétences RECTEC
+        function updateSkillsSummary() {
+            const rectecDomains = {
+                mobilite: ['connaissance-ces', 'maitrise-erasmus', 'explication-sci', 'opportunites-transfrontalieres', 'animation-info', 'coanimation-linguistique', 'preparation-departs', 'adaptation-ateliers', 'recueil-temoignages-mobilite', 'creation-supports-av', 'utilisation-medias', 'motivation-temoignages', 'contribution-travel-guide', 'aide-carnet-voyage', 'idees-amelioration', 'test-outils', 'journee-engagement', 'joli-mois-europe', 'participation-unml', 'communication-reseaux', 'collaboration-sc', 'contribution-projets', 'evaluation-satisfaction', 'adaptation-demandes'],
+                citoyennete: ['enjeux-societaux', 'institutions', 'interet-general', 'presentation-mobilite', 'initiative-citoyenne', 'participation-evenements', 'respect-diversite', 'creation-outils'],
+                communication: ['prise-parole', 'argumentation', 'adaptation-public', 'animation-ateliers', 'redaction-claire', 'synthese', 'communication-digitale', 'creation-supports', 'ecoute-active', 'empathie', 'recueil-temoignages', 'ouverture-culturelle', 'gestion-conflits', 'ateliers-linguistiques'],
+                numerique: ['bureautique', 'outils-collaboratifs', 'reseaux-pro', 'recherche-web', 'evaluation-sources', 'archivage-numerique', 'protection-donnees', 'propriete-intellectuelle'],
+                autonomie: ['idees-nouvelles', 'responsabilites', 'proactivite', 'organisation-travail', 'gestion-temps', 'adaptation', 'analyse-situations', 'solutions-creatives', 'curiosite', 'auto-evaluation'],
+                collaboration: ['participation-collective', 'partage-connaissances', 'soutien-collegues', 'animation-groupes', 'mobilisation-equipes', 'coordination-activites', 'developpement-partenariats', 'relations-professionnelles', 'planification-collective', 'suivi-objectifs']
+            };
+            
+            Object.keys(rectecDomains).forEach(domain => {
+                const summaryElement = document.getElementById(domain + '-summary');
+                if (summaryElement) {
+                    summaryElement.innerHTML = '';
+                    
+                    rectecDomains[domain].forEach(skill => {
+                        const slider = document.querySelector(`[data-skill="${skill}"]`);
+                        if (slider && slider.value >= 4) {
+                            const label = slider.parentNode.parentNode.querySelector('label').textContent;
+                            summaryElement.innerHTML += `<div class="flex items-center space-x-1"><span>⭐</span><span>${label}</span></div>`;
+                        }
+                    });
+                }
+            });
+        }
+
+        // Génération PDF (simulation)
+        function generatePDF() {
+            const volunteerName = document.getElementById('volunteerName').value || 'Volontaire';
+            alert(`📄 Génération du bilan PDF pour ${volunteerName}...\n\nLe document sera disponible dans quelques instants avec :\n- Évaluation des compétences\n- Synthèse du projet\n- Recommandations personnalisées`);
+        }
+
+        // Réinitialisation du formulaire
+        function resetForm() {
+            if (confirm('Êtes-vous sûr de vouloir réinitialiser tout le formulaire ?')) {
+                document.querySelectorAll('input, textarea').forEach(input => {
+                    if (input.type === 'range') {
+                        input.value = 3;
+                        input.dispatchEvent(new Event('input'));
+                    } else {
+                        input.value = '';
+                    }
+                });
+                
+                // Réinitialiser les scores
+                updateObjectifs(75);
+                updateSatisfaction(4);
+                updateRecommandation(4);
+                document.getElementById('objectifs-slider').value = 75;
+                document.getElementById('satisfaction-slider').value = 4;
+                document.getElementById('recommandation-slider').value = 4;
+                
+                showSection('mobilite');
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            updateObjectifs(75);
+            updateSatisfaction(4);
+            updateRecommandation(4);
+            updateSkillsSummary();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9673db8fc6863740',t:'MTc1Mzg2ODAzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
