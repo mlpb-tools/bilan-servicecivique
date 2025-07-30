@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bilan Final - Service Civique Mission Locale</title>
+    C:\Users\mathieub\OneDrive - Mission Locale Avenir Jeunes Pays Basque\Images\thumbnail_Outlook-nbwxffat.png
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .skill-card {
@@ -30,87 +31,88 @@
         <!-- En-tête -->
         <div class="text-center mb-8">
             <h1 class="text-4xl font-bold text-indigo-800 mb-2">🎯 Mon Bilan Service Civique</h1>
-            <p class="text-lg text-gray-600">Mission Locale - Mobilité Internationale</p>
+            <p class="text-lg text-gray-600">Évaluation des compétences développées</p>
             <div class="mt-4 p-4 bg-white rounded-lg shadow-sm">
-                <input type="text" id="volunteerName" placeholder="Ton prénom et nom" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-                <div class="mt-2 text-sm text-gray-500">
-                    <p>📍 Mission : Promotion de la mobilité internationale auprès des jeunes</p>
-                    <p>🌍 Programmes : Corps Européen de Solidarité, ERASMUS+, Service Civique International</p>
-                </div>
+                <input type="text" id="volunteerName" placeholder="Ton prénom et nom" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent mb-3">
+                <input type="text" id="missionTitle" placeholder="Le titre de ta mission" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent mb-3">
+                <input type="text" id="missionStructure" placeholder="Ta structure d'accueil" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
             </div>
         </div>
 
         <!-- Navigation par onglets - Référentiel RECTEC -->
         <div class="mb-8">
             <div class="flex flex-wrap justify-center space-x-1 bg-white p-2 rounded-lg shadow-sm">
-                <button onclick="showSection('mobilite')" id="tab-mobilite" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors bg-indigo-600 text-white text-sm">
+                <button id="tab-mission" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors bg-indigo-600 text-white text-sm">
                     🌍 Ma Mission
                 </button>
-                <button onclick="showSection('citoyennete')" id="tab-citoyennete" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                <button id="tab-citoyennete" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
                     🏛️ Citoyenneté
                 </button>
-                <button onclick="showSection('communication')" id="tab-communication" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                <button id="tab-communication" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
                     💬 Communication
                 </button>
-                <button onclick="showSection('numerique')" id="tab-numerique" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                <button id="tab-numerique" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
                     💻 Numérique
                 </button>
-                <button onclick="showSection('autonomie')" id="tab-autonomie" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                <button id="tab-autonomie" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
                     🎯 Autonomie
                 </button>
-                <button onclick="showSection('collaboration')" id="tab-collaboration" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                <button id="tab-collaboration" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
                     🤝 Collaboration
                 </button>
-                <button onclick="showSection('synthese')" id="tab-synthese" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                <button id="tab-synthese" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
                     📋 Synthèse
                 </button>
-                <button onclick="showSection('avenir')" id="tab-avenir" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
+                <button id="tab-avenir" class="tab-btn px-3 py-2 rounded-lg font-medium transition-colors text-indigo-600 hover:bg-indigo-50 text-sm">
                     🚀 Mon Avenir
                 </button>
             </div>
         </div>
 
-        <!-- Section Mission Mobilité Internationale -->
-        <div id="section-mobilite" class="section">
-            <h2 class="text-2xl font-bold text-indigo-800 mb-6">🌍 Ma Mission Mobilité Internationale</h2>
-            <p class="text-gray-600 mb-6">Raconte-moi ton expérience de promotion de la mobilité internationale auprès des jeunes</p>
+        <!-- Section Ma Mission -->
+        <div id="section-mission" class="section">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6">🌍 Ma Mission</h2>
+            <p class="text-gray-600 mb-6">Raconte ton expérience en quelques lignes</p>
             
-            <div class="bg-white p-8 rounded-xl shadow-sm">
-                <div class="mb-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">✍️ Mon expérience en quelques mots</h3>
-                    <p class="text-gray-600 mb-4">Prends le temps de raconter ton parcours, tes découvertes, tes réussites et tes apprentissages pendant cette mission. Tu peux parler de :</p>
-                    <ul class="text-sm text-gray-600 mb-6 space-y-1 ml-4">
-                        <li>• Les programmes que tu as découverts (Corps Européen de Solidarité, ERASMUS+, Service Civique International...)</li>
-                        <li>• Les ateliers que tu as animés ou co-animés</li>
-                        <li>• Les jeunes que tu as accompagnés et conseillés</li>
-                        <li>• Les événements auxquels tu as participé (Journée de l'engagement, Joli mois de l'Europe...)</li>
-                        <li>• Les outils que tu as aidé à créer (My travel guide, carnet de voyage...)</li>
-                        <li>• Tes collaborations avec l'équipe et les autres services civiques</li>
-                        <li>• Ce qui t'a marqué, surpris ou fait grandir</li>
-                        <li>• Tes moments de fierté et tes défis relevés</li>
-                    </ul>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📝 Ce que j'ai fait (en 10 lignes maximum)</h3>
+                    <textarea 
+                        id="ce-que-jai-fait" 
+                        placeholder="Décris tes principales activités et missions : qu'est-ce que tu as fait concrètement pendant ton service civique ?" 
+                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none text-gray-700 leading-relaxed" 
+                        rows="10">
+                    </textarea>
                 </div>
-                
-                <textarea 
-                    id="mission-libre" 
-                    placeholder="Raconte ton expérience de service civique en mobilité internationale... 
 
-Par exemple : 
-- Comment as-tu découvert les différents programmes ?
-- Quels ont été tes premiers ateliers ? Comment ça s'est passé ?
-- Y a-t-il un jeune que tu as particulièrement aidé ?
-- Qu'est-ce qui t'a le plus appris sur toi-même ?
-- Quels ont été tes moments de fierté ?
-- Comment as-tu évolué au fil des mois ?
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🎓 Ce que j'ai appris (en 10 lignes maximum)</h3>
+                    <textarea 
+                        id="ce-que-jai-appris" 
+                        placeholder="Quelles compétences as-tu développées ? Qu'as-tu découvert sur toi-même ? Sur le monde du travail ?" 
+                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none text-gray-700 leading-relaxed" 
+                        rows="10">
+                    </textarea>
+                </div>
 
-N'hésite pas à être personnel et authentique dans ton récit !" 
-                    class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none text-gray-700 leading-relaxed" 
-                    rows="20"
-                    style="min-height: 400px;">
-                </textarea>
-                
-                <div class="mt-4 text-sm text-gray-500">
-                    <p>💡 <strong>Conseil :</strong> Prends ton temps pour réfléchir et écris comme si tu racontais ton expérience à un ami. Il n'y a pas de bonne ou mauvaise réponse, l'important c'est ton vécu !</p>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🏢 Ma structure d'accueil (en 10 lignes maximum)</h3>
+                    <textarea 
+                        id="ma-structure" 
+                        placeholder="Présente ta structure : que fait-elle ? Comment ça marche ? Quelle est ta place dans l'équipe ?" 
+                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none text-gray-700 leading-relaxed" 
+                        rows="10">
+                    </textarea>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">⭐ Ma meilleure anecdote (en 10 lignes maximum)</h3>
+                    <textarea 
+                        id="meilleure-anecdote" 
+                        placeholder="Raconte un moment marquant, drôle, émouvant ou dont tu es particulièrement fier..." 
+                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none text-gray-700 leading-relaxed" 
+                        rows="10">
+                    </textarea>
                 </div>
             </div>
         </div>
@@ -651,19 +653,19 @@ N'hésite pas à être personnel et authentique dans ton récit !"
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 Objectifs atteints</h3>
                     <div class="grid md:grid-cols-3 gap-4">
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-green-600" id="objectifs-score">0%</div>
+                            <div class="text-3xl font-bold text-green-600" id="objectifs-score">75%</div>
                             <div class="text-sm text-gray-600">Objectifs atteints</div>
-                            <input type="range" min="0" max="100" value="75" class="w-full mt-2" id="objectifs-slider" onchange="updateObjectifs(this.value)">
+                            <input type="range" min="0" max="100" value="75" class="w-full mt-2" id="objectifs-slider">
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-600" id="satisfaction-score">0/5</div>
+                            <div class="text-3xl font-bold text-blue-600" id="satisfaction-score">4/5</div>
                             <div class="text-sm text-gray-600">Satisfaction générale</div>
-                            <input type="range" min="1" max="5" value="4" class="w-full mt-2" id="satisfaction-slider" onchange="updateSatisfaction(this.value)">
+                            <input type="range" min="1" max="5" value="4" class="w-full mt-2" id="satisfaction-slider">
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-purple-600" id="recommandation-score">0/5</div>
+                            <div class="text-3xl font-bold text-purple-600" id="recommandation-score">4/5</div>
                             <div class="text-sm text-gray-600">Recommandation</div>
-                            <input type="range" min="1" max="5" value="4" class="w-full mt-2" id="recommandation-slider" onchange="updateRecommandation(this.value)">
+                            <input type="range" min="1" max="5" value="4" class="w-full mt-2" id="recommandation-slider">
                         </div>
                     </div>
                 </div>
@@ -689,8 +691,8 @@ N'hésite pas à être personnel et authentique dans ton récit !"
                     <h3 class="text-lg font-semibold mb-4">📊 Résumé des compétences RECTEC</h3>
                     <div id="competences-resume" class="grid md:grid-cols-2 gap-4 text-sm">
                         <div>
-                            <h4 class="font-medium mb-2">🌍 Mission Mobilité :</h4>
-                            <div id="mobilite-summary"></div>
+                            <h4 class="font-medium mb-2">🌍 Ma Mission :</h4>
+                            <div id="mission-summary"></div>
                             <h4 class="font-medium mb-2 mt-3">🏛️ Citoyenneté :</h4>
                             <div id="citoyennete-summary"></div>
                             <h4 class="font-medium mb-2 mt-3">💬 Communication :</h4>
@@ -847,19 +849,31 @@ N'hésite pas à être personnel et authentique dans ton récit !"
         </div>
 
         <!-- Boutons d'action -->
-        <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <button onclick="generatePDF()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2">
-                <span>📄</span>
-                <span>Télécharger mon bilan</span>
-            </button>
-            <button onclick="resetForm()" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2">
-                <span>🔄</span>
-                <span>Recommencer</span>
+        <div class="mt-8 flex flex-wrap justify-between items-center">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button id="btn-pdf" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2">
+                    <span>📄</span>
+                    <span>Télécharger mon bilan</span>
+                </button>
+                <button id="btn-reset" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2">
+                    <span>🔄</span>
+                    <span>Recommencer</span>
+                </button>
+            </div>
+            
+            <!-- Bouton Suivant -->
+            <button id="btn-suivant" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2">
+                <span>Suivant</span>
+                <span>→</span>
             </button>
         </div>
     </div>
 
     <script>
+        // Variables pour la navigation
+        const sections = ['mission', 'citoyennete', 'communication', 'numerique', 'autonomie', 'collaboration', 'synthese', 'avenir'];
+        let currentSectionIndex = 0;
+
         // Gestion des onglets
         function showSection(sectionName) {
             // Masquer toutes les sections
@@ -879,25 +893,51 @@ N'hésite pas à être personnel et authentique dans ton récit !"
             
             document.getElementById('tab-' + sectionName).classList.add('bg-indigo-600', 'text-white');
             document.getElementById('tab-' + sectionName).classList.remove('text-indigo-600', 'hover:bg-indigo-50');
+            
+            // Mettre à jour l'index de la section courante
+            currentSectionIndex = sections.indexOf(sectionName);
+            
+            // Mettre à jour le bouton suivant
+            updateNextButton();
+        }
+
+        // Navigation vers la section suivante
+        function nextSection() {
+            if (currentSectionIndex < sections.length - 1) {
+                currentSectionIndex++;
+                showSection(sections[currentSectionIndex]);
+            }
+        }
+
+        // Mise à jour du bouton suivant
+        function updateNextButton() {
+            const btnSuivant = document.getElementById('btn-suivant');
+            if (currentSectionIndex === sections.length - 1) {
+                btnSuivant.style.display = 'none';
+            } else {
+                btnSuivant.style.display = 'flex';
+            }
         }
 
         // Gestion des sliders de compétences
-        document.querySelectorAll('.skill-slider').forEach(slider => {
-            slider.addEventListener('input', function() {
-                const value = this.value;
-                const valueSpan = this.parentNode.querySelector('.skill-value');
-                valueSpan.textContent = value + '/5';
+        function initializeSliders() {
+            document.querySelectorAll('.skill-slider').forEach(slider => {
+                slider.addEventListener('input', function() {
+                    const value = this.value;
+                    const valueSpan = this.parentNode.querySelector('.skill-value');
+                    valueSpan.textContent = value + '/5';
+                    
+                    // Couleur progressive
+                    const percentage = (value - 1) / 4 * 100;
+                    this.style.background = `linear-gradient(to right, #4f46e5 0%, #4f46e5 ${percentage}%, #e5e7eb ${percentage}%, #e5e7eb 100%)`;
+                    
+                    updateSkillsSummary();
+                });
                 
-                // Couleur progressive
-                const percentage = (value - 1) / 4 * 100;
-                this.style.background = `linear-gradient(to right, #4f46e5 0%, #4f46e5 ${percentage}%, #e5e7eb ${percentage}%, #e5e7eb 100%)`;
-                
-                updateSkillsSummary();
+                // Initialiser la couleur
+                slider.dispatchEvent(new Event('input'));
             });
-            
-            // Initialiser la couleur
-            slider.dispatchEvent(new Event('input'));
-        });
+        }
 
         // Mise à jour des scores
         function updateObjectifs(value) {
@@ -915,7 +955,7 @@ N'hésite pas à être personnel et authentique dans ton récit !"
         // Mise à jour du résumé des compétences RECTEC
         function updateSkillsSummary() {
             const rectecDomains = {
-                mobilite: [],
+                mission: [],
                 citoyennete: ['enjeux-societaux', 'institutions', 'interet-general', 'presentation-mobilite', 'initiative-citoyenne', 'participation-evenements', 'respect-diversite', 'creation-outils'],
                 communication: ['prise-parole', 'argumentation', 'adaptation-public', 'animation-ateliers', 'redaction-claire', 'synthese', 'communication-digitale', 'creation-supports', 'ecoute-active', 'empathie', 'recueil-temoignages', 'ouverture-culturelle', 'gestion-conflits', 'ateliers-linguistiques'],
                 numerique: ['bureautique', 'outils-collaboratifs', 'reseaux-pro', 'recherche-web', 'evaluation-sources', 'archivage-numerique', 'protection-donnees', 'propriete-intellectuelle'],
@@ -928,14 +968,32 @@ N'hésite pas à être personnel et authentique dans ton récit !"
                 if (summaryElement) {
                     summaryElement.innerHTML = '';
                     
-                    if (domain === 'mobilite') {
-                        // Pour la mission, afficher un résumé du texte libre
-                        const missionText = document.getElementById('mission-libre').value;
-                        if (missionText && missionText.trim().length > 0) {
-                            const preview = missionText.substring(0, 150) + (missionText.length > 150 ? '...' : '');
-                            summaryElement.innerHTML = `<div class="text-sm italic">"${preview}"</div>`;
-                        } else {
-                            summaryElement.innerHTML = `<div class="text-sm text-gray-400">Récit de mission à compléter</div>`;
+                    if (domain === 'mission') {
+                        // Pour la mission, afficher un résumé des textes
+                        const ceQueFait = document.getElementById('ce-que-jai-fait').value;
+                        const ceQueAppris = document.getElementById('ce-que-jai-appris').value;
+                        const anecdote = document.getElementById('meilleure-anecdote').value;
+                        
+                        const ceQueFait = document.getElementById('ce-que-jai-fait').value;
+                        const ceQueAppris = document.getElementById('ce-que-jai-appris').value;
+                        const maStructure = document.getElementById('ma-structure').value;
+                        const anecdote = document.getElementById('meilleure-anecdote').value;
+                        
+                        if (ceQueFait && ceQueFait.trim().length > 0) {
+                            summaryElement.innerHTML += `<div class="text-sm mb-1"><strong>Actions :</strong> ${ceQueFait.substring(0, 80)}...</div>`;
+                        }
+                        if (ceQueAppris && ceQueAppris.trim().length > 0) {
+                            summaryElement.innerHTML += `<div class="text-sm mb-1"><strong>Apprentissages :</strong> ${ceQueAppris.substring(0, 80)}...</div>`;
+                        }
+                        if (maStructure && maStructure.trim().length > 0) {
+                            summaryElement.innerHTML += `<div class="text-sm mb-1"><strong>Structure :</strong> ${maStructure.substring(0, 80)}...</div>`;
+                        }
+                        if (anecdote && anecdote.trim().length > 0) {
+                            summaryElement.innerHTML += `<div class="text-sm"><strong>Anecdote :</strong> ${anecdote.substring(0, 80)}...</div>`;
+                        }
+                        
+                        if (!ceQueFait && !ceQueAppris && !maStructure && !anecdote) {
+                            summaryElement.innerHTML = `<div class="text-sm text-gray-400">Mission à compléter</div>`;
                         }
                     } else {
                         rectecDomains[domain].forEach(skill => {
@@ -965,6 +1023,7 @@ N'hésite pas à être personnel et authentique dans ton récit !"
                         input.dispatchEvent(new Event('input'));
                     } else {
                         input.value = '';
+                        input.checked = false;
                     }
                 });
                 
@@ -976,23 +1035,76 @@ N'hésite pas à être personnel et authentique dans ton récit !"
                 document.getElementById('satisfaction-slider').value = 4;
                 document.getElementById('recommandation-slider').value = 4;
                 
-                showSection('mobilite');
+                showSection('mission');
             }
         }
 
         // Initialisation
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialiser les sliders
+            initializeSliders();
+            
+            // Initialiser les scores
             updateObjectifs(75);
             updateSatisfaction(4);
             updateRecommandation(4);
             updateSkillsSummary();
+            updateNextButton();
             
-            // Écouter les changements dans le texte de mission
-            const missionTextarea = document.getElementById('mission-libre');
-            if (missionTextarea) {
-                missionTextarea.addEventListener('input', updateSkillsSummary);
+            // Écouter les changements dans les textes de mission
+            ['ce-que-jai-fait', 'ce-que-jai-appris', 'ma-structure', 'meilleure-anecdote'].forEach(id => {
+                const textarea = document.getElementById(id);
+                if (textarea) {
+                    textarea.addEventListener('input', updateSkillsSummary);
+                }
+            });
+            
+            // Ajouter les événements aux boutons
+            const btnSuivant = document.getElementById('btn-suivant');
+            if (btnSuivant) {
+                btnSuivant.addEventListener('click', nextSection);
+            }
+            
+            const btnPdf = document.getElementById('btn-pdf');
+            if (btnPdf) {
+                btnPdf.addEventListener('click', generatePDF);
+            }
+            
+            const btnReset = document.getElementById('btn-reset');
+            if (btnReset) {
+                btnReset.addEventListener('click', resetForm);
+            }
+            
+            // Ajouter les événements aux onglets
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const sectionName = this.id.replace('tab-', '');
+                    showSection(sectionName);
+                });
+            });
+            
+            // Ajouter les événements aux sliders de score
+            const objectifsSlider = document.getElementById('objectifs-slider');
+            if (objectifsSlider) {
+                objectifsSlider.addEventListener('input', function() {
+                    updateObjectifs(this.value);
+                });
+            }
+            
+            const satisfactionSlider = document.getElementById('satisfaction-slider');
+            if (satisfactionSlider) {
+                satisfactionSlider.addEventListener('input', function() {
+                    updateSatisfaction(this.value);
+                });
+            }
+            
+            const recommandationSlider = document.getElementById('recommandation-slider');
+            if (recommandationSlider) {
+                recommandationSlider.addEventListener('input', function() {
+                    updateRecommandation(this.value);
+                });
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9673f2651491d0b4',t:'MTc1Mzg2ODk3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9674215e16fd137e',t:'MTc1Mzg3MDg5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
